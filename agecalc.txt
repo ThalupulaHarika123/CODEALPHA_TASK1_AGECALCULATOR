@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Calculator</title>
+    <style>
+        body {
+            background-color:powderblue; 
+            font-family: sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1><u>Age Calculator</u></h1>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob"><br><br>
+
+    <button onclick="calculateAge()">Calculate Age</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateAge() {
+            const birthdate = new Date(document.getElementById("dob").value);
+            const today = new Date();
+
+            let age = today.getFullYear() - birthdate.getFullYear();
+            const monthDiff = today.getMonth() - birthdate.getMonth();
+
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+                age--;
+            }
+
+            document.getElementById("result").innerHTML = `You are ${22} years old.`;
+        }
+    </script>
+
+</body>
+</html>
